@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>{% block title %}{% end %}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ static_url("lib/semantic.css") }}">
+  <script type="text/javascript" src="{{ static_url("lib/jquery-1.11.2.min.js") }}"></script>
+  <!--[if lt IE 9]>
+  <script src="{{ static_url("lib/html5.js") }}"></script>
+  <![endif]-->
+  <script type="text/javascript" src="{{ static_url("lib/semantic.js") }}"></script>{% block head_style %}{% end %}
+</head>
+<body{% if body_class %} class="{{ body_class }}"{% end %}>
+{% block wrap %}
+  <div id="wrap">{% block header %}{% end %}
+    {% block contain %}
+      <div id="contain" class="main container">{% block body %}{% end %}</div>
+    {% end %}
+    {% block footer %}{% end %}
+  </div>
+{% end %}
+</body>
+</html>

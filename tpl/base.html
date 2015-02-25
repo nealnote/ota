@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>{% block title %}{% end %}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ static_url("lib/pure.css") }}">
+  <script type="text/javascript" src="{{ static_url("lib/jquery.js") }}"></script>
+  <!--[if lt IE 9]>
+  <script src="{{ static_url("lib/html5.js") }}"></script>
+  <![endif]-->
+  <!--[if lte IE 8]>
+    <link rel="stylesheet" href="{{ static_url("lib/grids-responsive-old-ie.css") }}">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+    <link rel="stylesheet" href="{{ static_url("lib/grids-responsive.css") }}">
+  <!--<![endif]-->
+  <link rel="stylesheet" href="{{ static_url("css/aio.css") }}">
+</head>
+<body{% if body_class %} class="{{ body_class }}"{% end %}>
+{% block wrap %}
+  <div id="wrap">
+    {% block header %}{% end %}
+    {% block contain %}
+      <div id="contain" class="main container">{% block body %}{% end %}</div>
+    {% end %}
+    {% block footer %}{% end %}
+  </div>
+{% end %}
+</body>
+</html>

@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block title %}ota{% end %}
+
+{% block header %}
+<div class="header">
+  <div class="pure-menu pure-menu-open pure-menu-horizontal">
+    <ul>
+      <li><a href="/" {% if action == None %} class="pure-menu-selected"{% end %}>Home</a></li>
+      {% for k in ['ios', 'android'] %}
+        <li><a href="/{{k}}"{% if action == k %} class="pure-menu-selected"{% end %}>{{k}}</a></li>
+      {% end %}
+    </ul>
+  </div>
+</div>
+{% end %}
+
+{% block body %}
+{% if action == None %}
+<div class="welcome">
+<p>
+  Ota for app download
+</p>
+<p>
+  <a href="/ios" class="button-welcome pure-button">ios</a>
+  <a href="/android" class="button-secondary pure-button">android</a>
+</p>
+</div>
+{% end %}
+{% if action == 'ios' %}
+<div class="J_device">
+  <h2>IOS</h2>
+  {% for k,v in ios %}
+  <h3>{{ k }}</h3>
+  <div class="J_list app-list">
+    {% for app in v %}
+    <div class="app-item">
+      <a class="app-name" href="itms-services://?action=download-manifest&url={{ link }}/plist/{{ app['_id'] }}">{{ app['name']}}</a>
+      {% if app['desc'] %}
+        <span>{{ app['desc'] }}</span>
+      {% end %}
+    </div>
+    {% end %}
+  </div>
+  {% end %}
+</div>
+{% end %}
+{% if action == 'android' %}
+<div class="J_device">
+  <h2>Android</h2>
+  {% for k,v in android %}
+  <h3>{{ k }}</h3>
+  <div class="J_list app-list">
+    {% for app in v %}
+    <div class="app-item">
+      <a class="app-name" href="/download/{{ app['path'] }}">{{ app['name'] }}</a>
+      <span>{{ app['desc'] }}</span>
+    </div>
+    {% end %}
+  </div>
+  {% end %}
+</div>
+{% end %}
+{% end %}
+
+{% block footer %}
+<script type="text/javascript" src="{{ static_url("js/app.js") }}"></script>
+{% end %}

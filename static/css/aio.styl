@@ -1,0 +1,59 @@
+$base-color     = #666
+$link-color     = #3b8bba
+$border-color   = #ddd
+$nav-text-color = #545454
+$nav-color      = #dd4b39
+
+body
+  color: $base-color
+a
+  color: $link-color
+  text-decoration: none
+  &:visited
+    color: $link-color;
+
+.header
+  a
+    color: $nav-text-color
+  border-bottom: 1px solid $border-color
+  .pure-menu-selected
+    color: $nav-color
+    border-bottom: 3px solid $nav-color
+
+.main
+  padding: 0 .2rem
+  h3
+    line-height: 2.4rem
+    color: white
+    margin: .4rem 0 0
+    padding: 0 .2rem
+    background: rgb(103, 194, 240)
+  .active
+    display: block
+
+.app-list
+  display: none
+  background: rgb(250, 250, 250)
+  border: 1px solid $border-color
+  border-top: 0
+  padding: .4rem .2rem
+.app-name
+  font-size: 1rem
+.app-item
+  line-height: 1.6rem
+  p
+    text-indent: 2em
+
+.welcome
+  padding-top: 4rem
+  text-align: center
+  .pure-button
+    min-width: 6em
+  .button-welcome
+    background: #1f8dd6
+    color: white
+    border: 1px solid #1f8dd6
+  .button-secondary
+    background: white
+    color: #666
+    border: 1px solid $border-color

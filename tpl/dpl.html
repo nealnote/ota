@@ -1,0 +1,25 @@
+{% extends "semantic_base.html" %}
+
+{% block head_style %}
+<link rel="stylesheet" href="{{ static_url("css/semantic.css") }}">
+{% end %}
+
+{% block body %}
+<div class="colors example">
+  <div class="ui four column stackable padded grid">
+    <div class="blue column"></div>
+    <div class="green column"></div>
+    <div class="orange column"></div>
+    <div class="pink column"></div>
+    <div class="purple column"></div>
+    <div class="red column"></div>
+    <div class="teal column"></div>
+    <div class="yellow column"></div>
+  </div>
+</div>
+<div class="ui buttons">
+  <button class="ui button" type="button">Cancel</button>
+  <div class="or"></div>
+  <button class="ui positive button" type="button">Save</button>
+</div>
+{% end %}
